@@ -1,3 +1,7 @@
+Mini E-Commerce Store
+Vue 3 training project for ALDI technical task
+
+
 App.vue
 
 Owns state and business logic

@@ -1,6 +1,6 @@
 <script setup>
 /* Vue macro */
-defineProps({
+const { product } = defineProps({
   product: Object,
 })
 

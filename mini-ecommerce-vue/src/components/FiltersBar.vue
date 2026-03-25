@@ -32,46 +32,54 @@ const sortModel = createModel('selectedSort')
 
 <template>
   <section class="filters-section">
-    <div class="filter-group">
-      <label for="search">Search products</label>
-      <!-- listens to the input event -->
-      <input
-        id="search"
-        v-model="searchModel"
-        type="text"
-        placeholder="Search by product name"
-      />
+    <div class="search-row">
+
+      <div class="logo-box">
+        <img src="/images/logo.png" alt="Shop logo" class="site-logo" />
+      </div>
+
+      <div class="filter-group search-group">
+          <!-- listens to the input event -->
+          <input
+              id="search"
+              v-model="searchModel"
+              type="text"
+              placeholder="Search by product name"
+          />
+      </div>
     </div>
 
-    <div class="filter-group">
-      <label for="category">Category</label>
-      <!-- manual binding, sets the value from parent → child, listens when user changes it -->
-      <select
-        id="category"
-        v-model="categoryModel"
-      >
-        <!-- :key is for Vue -->
-        <option
-          v-for="category in props.categories"
-          :key="category"
-          :value="category"
-        >
-          {{ category }}
-        </option>
-      </select>
-    </div>
+    <div class="filters-row">
+      <div class="filter-group sort-inline">
+        <span class="sort-prefix">Category</span>
+            <!-- binding, sets the value from parent → child, listens when user changes it -->
+            <select
+                id="category"
+                v-model="categoryModel"
+            >
+                <!-- :key is for Vue -->
+                <option
+                v-for="category in props.categories"
+                :key="category"
+                :value="category"
+                >
+                {{ category }}
+                </option>
+            </select>
+        </div>
 
-    <div class="filter-group">
-      <label for="sort">Sort by</label>
-      <select
-        id="sort" 
-        v-model="sortModel"
-      >
-        <option value="default">Default</option>
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-        <option value="rating-desc">Rating</option>
-      </select>
+        <div class="filter-group sort-inline">
+            <span class="sort-prefix">Sort by</span>
+            <select
+                id="sort" 
+                v-model="sortModel"
+            >
+                <option value="default">Default</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating-desc">Rating: High to Low</option>
+            </select>
+        </div>
     </div>
   </section>
 </template>

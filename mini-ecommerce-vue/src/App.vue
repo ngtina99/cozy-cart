@@ -5,77 +5,138 @@ import ProductList from './components/ProductList.vue'
 import CartSummary from './components/CartSummary.vue'
 
 const products = [
+  // Accessories
   {
     id: 1,
-    name: 'Running Shoes',
-    price: 89.99,
-    category: 'Shoes',
+    name: "Everyday Backpack",
+    price: 29.99,
+    category: "Accessories",
     inStock: true,
-    rating: 4.5,
-    image: 'https://via.placeholder.com/240x160?text=Running+Shoes',
+    rating: 4.6,
+    image: "/images/backpack.jpg",
   },
   {
     id: 2,
-    name: 'Classic Sneakers',
-    price: 74.99,
-    category: 'Shoes',
+    name: "Baseball Cap",
+    price: 12.99,
+    category: "Accessories",
     inStock: true,
-    rating: 4.3,
-    image: 'https://via.placeholder.com/240x160?text=Classic+Sneakers',
+    rating: 4.2,
+    image: "/images/cap.jpg",
   },
+
+  // Electronics
   {
     id: 3,
-    name: 'Wireless Headphones',
+    name: "Wireless Headphones",
     price: 129.99,
-    category: 'Electronics',
+    category: "Electronics",
     inStock: true,
     rating: 4.8,
-    image: 'https://via.placeholder.com/240x160?text=Headphones',
+    image: "/images/headphones.jpg",
   },
   {
     id: 4,
-    name: 'Bluetooth Speaker',
-    price: 59.99,
-    category: 'Electronics',
-    inStock: false,
-    rating: 4.1,
-    image: 'https://via.placeholder.com/240x160?text=Speaker',
+    name: "Smart Fitness Watch",
+    price: 149.99,
+    category: "Electronics",
+    inStock: true,
+    rating: 4.7,
+    image: "/images/watch.jpg",
   },
   {
     id: 5,
-    name: 'Coffee Mug',
-    price: 14.99,
-    category: 'Home',
+    name: "Portable Phone Charger",
+    price: 24.99,
+    category: "Electronics",
     inStock: true,
-    rating: 4.2,
-    image: 'https://via.placeholder.com/240x160?text=Coffee+Mug',
+    rating: 4.4,
+    image: "/images/powerbank.jpg",
   },
+
+  // Home
   {
     id: 6,
-    name: 'Desk Lamp',
-    price: 34.99,
-    category: 'Home',
+    name: "Ceramic Coffee Mug",
+    price: 14.99,
+    category: "Home",
     inStock: true,
-    rating: 4.6,
-    image: 'https://via.placeholder.com/240x160?text=Desk+Lamp',
+    rating: 4.2,
+    image: "/images/mug.jpg",
   },
   {
     id: 7,
-    name: 'Backpack',
-    price: 49.99,
-    category: 'Accessories',
+    name: "Modern Desk Lamp",
+    price: 34.99,
+    category: "Home",
     inStock: true,
-    rating: 4.4,
-    image: 'https://via.placeholder.com/240x160?text=Backpack',
+    rating: 4.6,
+    image: "/images/lamp.jpg",
   },
   {
     id: 8,
-    name: 'Baseball Cap',
-    price: 19.99,
-    category: 'Accessories',
+    name: "Minimalist Wall Clock",
+    price: 29.99,
+    category: "Home",
+    inStock: true,
+    rating: 4.3,
+    image: "/images/clock.jpg",
+  },
+  {
+    id: 9,
+    name: "Soft Throw Blanket",
+    price: 39.99,
+    category: "Home",
     inStock: false,
-    rating: 3.9,
-    image: 'https://via.placeholder.com/240x160?text=Baseball+Cap',
+    rating: 4.5,
+    image: "/images/blanket.jpg",
+  },
+
+  // Easter
+  {
+    id: 10,
+    name: "Easter Chocolate Box",
+    price: 19.99,
+    category: "Seasonal 🐰",
+    inStock: true,
+    rating: 4.9,
+    image: "/images/easter-eggs.jpg",
+  },
+  {
+    id: 11,
+    name: "Easter Bunny Toy",
+    price: 15.99,
+    category: "Seasonal 🐰",
+    inStock: true,
+    rating: 4.7,
+    image: "/images/bunny.jpg",
+  },
+  {
+    id: 12,
+    name: "Decorated Easter Egg",
+    price: 12.99,
+    category: "Seasonal 🐰",
+    inStock: false,
+    rating: 4.4,
+    image: "/images/easter-egg.jpg",
+  },
+  {
+    id: 13,
+    name: "Easter Flower Basket",
+    price: 24.99,
+    category: "Seasonal 🐰",
+    inStock: true,
+    rating: 4.6,
+    image: "/images/easter-basket.jpg",
+  },
+  {
+    id: 14,
+    name: "Easter Cookie Decorating Kit",
+    price: 9.99,
+    category: "Seasonal 🐰",
+    inStock: true,
+    rating: 4.8,
+    image: "/images/easter-cookies.jpg",
   },
 ]
 
@@ -171,8 +232,6 @@ const hasNoMatchingProducts = computed(() => {
 
 <template>
   <main>
-    <h1>Mini E-Commerce Store</h1>
-    <p>Vue 3 training project for ALDI technical task</p>
 
     <FiltersBar
       :search-term="searchTerm"
@@ -184,20 +243,26 @@ const hasNoMatchingProducts = computed(() => {
       @update:selected-sort="selectedSort = $event"
     />
 
-    <p v-if="hasNoMatchingProducts" class="empty-state">
-      No products found for your search or selected filter.
-    </p>
+    <div class="page-layout">
+      <section class="shop-column">
+        <p v-if="hasNoMatchingProducts" class="empty-state">
+          No products found for your search or selected filter.
+        </p>
 
-    <ProductList
-      v-else
-      :products="sortedProducts"
-      @add-to-cart="addToCart"
-    />
+        <ProductList
+          v-else
+          :products="sortedProducts"
+          @add-to-cart="addToCart"
+        />
+      </section>
+    </div>
 
-    <CartSummary
-      :cart="cart"
-      :total-cart-items="totalCartItems"
-      :total-cart-price="totalCartPrice"
-    />
+    <aside class="cart-column">
+        <CartSummary
+          :cart="cart"
+          :total-cart-items="totalCartItems"
+          :total-cart-price="totalCartPrice"
+        />
+    </aside>
   </main>
 </template>
