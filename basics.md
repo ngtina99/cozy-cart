@@ -190,3 +190,87 @@ This creates predictable architecture.
 
 That is professional frontend thinking.
 
+
+
+# A list of products
+What kind of data structure fits a list of products?
+
+An array.
+
+- order matters
+- we have multiple items
+- we want to loop over them
+
+What should each item in the array be?
+
+An object.
+
+Because a product has multiple properties:
+
+- id
+- name
+- price
+- category
+- inStock
+- rating
+
+🔹 1. v-model
+
+👉 Two-way data binding
+
+<input v-model="name" />
+
+🔹 2. v-bind (or :)
+
+👉 Bind attributes dynamically
+
+<img :src="image" />
+
+🔹 3. v-on (or @)
+
+👉 Listen to events
+
+<button @click="handleClick">Click</button>
+
+🔹 4. v-if
+
+👉 Conditional rendering
+
+<p v-if="isLoggedIn">Welcome</p>
+
+🔹 5. v-else / v-else-if
+<p v-if="ok">Yes</p>
+<p v-else>No</p>
+
+🔹 6. v-for
+
+👉 Loop through data
+
+<li v-for="item in items" :key="item.id">
+  {{ item }}
+</li>
+
+🔹 7. v-show
+
+👉 Show/hide (CSS-based)
+
+<p v-show="visible">Hello</p>
+
+🔹 8. v-text
+
+👉 Insert text
+
+<p v-text="message"></p>
+
+(same as {{ message }})
+
+🔹 9. v-html
+
+👉 Render HTML (careful ⚠️)
+
+<div v-html="htmlContent"></div>
+
+| Situation          | Use     |
+| ------------------ | ------- |
+| Value won’t change | `const` |
+| Value will change  | `let`   |
