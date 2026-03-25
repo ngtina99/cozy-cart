@@ -60,21 +60,60 @@ p {
 }
 
 .filters-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
   margin-top: 24px;
   margin-bottom: 24px;
 }
 
-.filters-section label {
+.filter-group label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
 }
 
-.filters-section input {
+.filter-group input,
+.filter-group select {
   width: 100%;
-  max-width: 320px;
   padding: 10px 12px;
   border: 1px solid #cccccc;
   border-radius: 8px;
   font: inherit;
+  background-color: #ffffff;
+}
+
+.add-button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1f7a1f;
+  color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.add-button:disabled {
+  background-color: #999999;
+  cursor: not-allowed;
+}
+
+.cart-section {
+  margin-top: 32px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+}
+
+.cart-list {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+
+.cart-item {
+  margin-top: 8px;
 }

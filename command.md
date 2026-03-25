@@ -19,3 +19,15 @@ This downloads things like:
 - Vue
 - Vite
 other required packages
+
+
+App.vue
+  -> passes data down as props
+  <- receives events up through emits
+
+👉 It looks like two-way… but it’s actually not.
+
+🔑 The key idea
+
+Data only flows DOWN
+Events go UP (but don’t carry state)

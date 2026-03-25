@@ -274,3 +274,33 @@ Because a product has multiple properties:
 | ------------------ | ------- |
 | Value won’t change | `const` |
 | Value will change  | `let`   |
+
+const categories = computed()
+
+We are creating derived data called categories
+
+:value="category"
+
+Set the option’s actual value to the category string.
+
+That means if the user selects “Shoes”, then:
+```java
+selectedCategory.value === 'Shoes'
+```
+
+```cs
+display: grid;
+```
+
+❌ Without grid (default)
+
+Elements stack vertically:
+
+[ item ]
+[ item ]
+[ item ]
+✅ With display: grid
+
+Elements are placed into rows and columns:
+
+[ item ][ item ][ item ]
