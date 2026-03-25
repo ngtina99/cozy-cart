@@ -72,10 +72,9 @@ This file is important, but at the beginning you don’t “code” in it much.
 This is the entry point of your Vue app.
 
 Its job is usually:
-
-import Vue
-import App.vue
-mount the app into #app
+- import Vue
+- import App.vue
+- mount the app into #app
 
 Conceptually:
 ```bash
@@ -124,4 +123,70 @@ For this task:
 - CartSummary.vue
 
 Each one should do one job well.
+
+# .vue file looks like
+
+A Vue single-file component usually has 3 parts:
+
+<script setup>
+</script>
+-> This is where the logic goes.
+
+<template>
+</template>
+-> structure, HTML with Vue superpowers, HTML that can think (react to data and logic)
+
+<style scoped>
+</style>
+-> style, This is CSS for that component.
+
+1. State
+
+The data your UI depends on.
+
+In our app:
+- products
+- cart
+- search text
+- selected category
+- sort option
+
+2. Reactive state
+
+State that Vue watches.
+
+- If it changes, UI updates.
+
+3. Derived state
+
+Data computed from other data.
+
+Example:
+- visible products
+- cart total
+- cart item count
+
+We usually use computed for this.
+
+4. Props
+
+Data passed from parent to child.
+
+Example:
+- App.vue passes products to ProductList.vue
+
+5. Emits
+
+Messages sent from child to parent.
+
+Example:
+- ProductCard.vue emits “add-to-cart”
+
+6. One-way data flow
+
+Data goes down with props, events go up with emits.
+
+This creates predictable architecture.
+
+That is professional frontend thinking.
 
