@@ -1,5 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue'
+import FiltersBar from './components/FiltersBar.vue'
+import ProductList from './components/ProductList.vue'
+import CartSummary from './components/CartSummary.vue'
 
 const products = [
   {
@@ -78,7 +81,7 @@ const products = [
 
 const selectedCategory = ref('All')
 const searchTerm = ref('') /* reactive empty string */
-const selectedSortOption = ref('default')
+const selectedSort = ref('default')
 const cart = ref([]) /* reactive array->quantities increase over time */
 
 /* computed derives a value from reactive data and automatically updates it when dependencies change */
@@ -89,7 +92,7 @@ const categories = computed(() => {
 })
 
 const filteredProducts = computed(() => {
-  const search = searchTerm.value.toLowerCase()
+  const search = searchTerm.value.trim().toLowerCase()
   const selected = selectedCategory.value
 
   return products.filter(product => {
@@ -105,7 +108,7 @@ const sortedProducts = computed(() => {
   /* sortedProducts depends on filteredProducts */
   const productsForSorting = [...filteredProducts.value]
 
-  const sortOption = selectedSortOption.value
+  const sortOption = selectedSort.value
 
   const sortFunctions = {
     'price-asc': (a, b) => a.price - b.price, /* lower price first */
@@ -160,6 +163,10 @@ const totalCartPrice = computed(() => {
 
   return total
 })
+
+const hasNoMatchingProducts = computed(() => {
+  return sortedProducts.value.length === 0
+})
 </script>
 
 <template>
@@ -167,81 +174,30 @@ const totalCartPrice = computed(() => {
     <h1>Mini E-Commerce Store</h1>
     <p>Vue 3 training project for ALDI technical task</p>
 
-    <section class="filters-section">
-      <div class="filter-group">
-        <label for="search">Search products</label>
-        <input
-          id="search"
-          v-model="searchTerm"
-          type="text"
-          placeholder="Search by product name"
-        />
-      </div>
+    <FiltersBar
+      :search-term="searchTerm"
+      :selected-category="selectedCategory"
+      :selected-sort="selectedSort"
+      :categories="categories"
+      @update:search-term="searchTerm = $event"
+      @update:selected-category="selectedCategory = $event"
+      @update:selected-sort="selectedSort = $event"
+    />
 
-      <div class="filter-group">
-        <label for="category">Category</label>
-        <select id="category" v-model="selectedCategory">
-          <option
-            v-for="category in categories"
-            :key="category"
-            :value="category"
-          >
-            {{ category }}
-          </option>
-        </select>
-      </div>
+    <p v-if="hasNoMatchingProducts" class="empty-state">
+      No products found for your search or selected filter.
+    </p>
 
-      <div class="filter-group">
-        <label for="sort">Sort by</label>
-        <select id="sort" v-model="selectedSortOption">
-          <option value="default">Default</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="rating-desc">Rating</option>
-        </select>
-      </div>
-    </section>
+    <ProductList
+      v-else
+      :products="sortedProducts"
+      @add-to-cart="addToCart"
+    />
 
-    <section class="products-section">
-      <h2>Products</h2>
-
-      <div class="products-grid">
-        <!-- reusable, product card, article better for SEO -->
-        <article
-          v-for="product in sortedProducts"
-          :key="product.id"
-          class="product-card"
-        >
-          <img :src="product.image" :alt="product.name" class="product-image" />
-
-          <h3>{{ product.name }}</h3>
-          <p>Price: ${{ product.price }}</p>
-          <p>Category: {{ product.category }}</p>
-          <p>Rating: {{ product.rating }}</p>
-          <p>{{ product.inStock ? 'In stock' : 'Out of stock' }}</p>
-
-          <button
-            class="add-button"
-            :disabled="!product.inStock"
-            @click="addToCart(product)"
-          >
-            Add to Cart
-          </button>
-        </article>
-      </div>
-    </section>
-    <section class="cart-section">
-      <h2>Cart Summary</h2>
-
-      <p>Total items: {{ totalCartItems }}</p>
-      <p>Total price: ${{ totalCartPrice.toFixed(2) }}</p>
-
-      <ul class="cart-list">
-        <li v-for="cartItem in cart" :key="cartItem.id" class="cart-item">
-          {{ cartItem.name }} — Quantity: {{ cartItem.quantity }} — Subtotal:
-            ${{ (cartItem.price * cartItem.quantity).toFixed(2) }}
-        </li>
-      </ul>
-    </section>
+    <CartSummary
+      :cart="cart"
+      :total-cart-items="totalCartItems"
+      :total-cart-price="totalCartPrice"
+    />
   </main>
 </template>
