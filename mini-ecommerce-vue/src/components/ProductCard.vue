@@ -10,7 +10,7 @@ const emit = defineEmits([
 ])
 
 function handleAddToCart() {
-  emit('add-to-cart')
+  emit('add-to-cart', product)
 }
 </script>
 
