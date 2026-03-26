@@ -79,7 +79,7 @@ const products = [
     id: 8,
     name: "Easter Chocolate Box",
     price: 19.99,
-    category: "Seasonal 🐰",
+    category: "Seasonal",
     inStock: true,
     rating: 4.9,
     image: "/images/easter-chocolate.png",
@@ -88,16 +88,16 @@ const products = [
     id: 9,
     name: "Easter Bunny Toy",
     price: 15.99,
-    category: "Seasonal 🐰",
+    category: "Seasonal",
     inStock: false,
-    rating: 4.7,
+    rating: 5.0,
     image: "/images/easter-bunny.png",
   },
   {
     id: 10,
     name: "Easter Flower Basket",
     price: 24.99,
-    category: "Seasonal 🐰",
+    category: "Seasonal",
     inStock: true,
     rating: 4.6,
     image: "/images/easter-basket.png",
@@ -106,7 +106,7 @@ const products = [
     id: 11,
     name: "Easter Cookie Decorating Kit",
     price: 9.99,
-    category: "Seasonal 🐰",
+    category: "Seasonal",
     inStock: true,
     rating: 4.8,
     image: "/images/easter-cookies.png",
@@ -215,7 +215,7 @@ const totalCartPrice = computed(() => {
 
     <div class="page-layout">
       <section class="shop-column">
-        <p v-if="sortedProducts.length === 0" class="empty-state">
+        <p v-if="hasNoMatchingProducts" class="empty-state">
           No products found for your search or selected filter.
         </p>
 
