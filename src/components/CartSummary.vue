@@ -12,7 +12,7 @@ defineProps({
       <h2>Cart Summary</h2>
 
       <p>Total items: {{ totalCartItems }}</p>
-      <p>Total price: ${{ totalCartPrice.toFixed(2) }}</p>
+      <p>Total price: €{{ totalCartPrice.toFixed(2) }}</p>
     </div>
 
     <div class="cart-items-scroll">
@@ -22,10 +22,10 @@ defineProps({
         <li v-for="cartItem in cart" :key="cartItem.id" class="cart-item">
           <span class="cart-item-name">{{ cartItem.name }}</span>
           <span class="cart-item-details">
-            Qty: {{ cartItem.quantity }}
+            Quantity: {{ cartItem.quantity }}
           </span>
           <span class="cart-item-details">
-            Subtotal: ${{ (cartItem.price * cartItem.quantity).toFixed(2) }}
+            Subtotal: €{{ (cartItem.price * cartItem.quantity).toFixed(2) }}
           </span>
         </li>
       </ul>

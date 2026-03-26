@@ -13,7 +13,7 @@ const products = [
     category: "Accessories",
     inStock: true,
     rating: 4.6,
-    image: "/images/backpack.jpg",
+    image: "/images/backpack.png",
   },
   {
     id: 2,
@@ -22,121 +22,94 @@ const products = [
     category: "Accessories",
     inStock: true,
     rating: 4.2,
-    image: "/images/cap.jpg",
+    image: "/images/cap.png",
   },
 
   // Electronics
   {
     id: 3,
-    name: "Wireless Headphones",
-    price: 129.99,
-    category: "Electronics",
-    inStock: true,
-    rating: 4.8,
-    image: "/images/headphones.jpg",
-  },
-  {
-    id: 4,
     name: "Smart Fitness Watch",
     price: 149.99,
     category: "Electronics",
     inStock: true,
     rating: 4.7,
-    image: "/images/watch.jpg",
+    image: "/images/watch.png",
   },
   {
-    id: 5,
+    id: 4,
     name: "Portable Phone Charger",
     price: 24.99,
     category: "Electronics",
     inStock: true,
     rating: 4.4,
-    image: "/images/powerbank.jpg",
+    image: "/images/powerbank.png",
   },
 
   // Home
   {
-    id: 6,
+    id: 5,
     name: "Ceramic Coffee Mug",
     price: 14.99,
     category: "Home",
     inStock: true,
     rating: 4.2,
-    image: "/images/mug.jpg",
+    image: "/images/mug.png",
   },
   {
-    id: 7,
-    name: "Modern Desk Lamp",
-    price: 34.99,
-    category: "Home",
-    inStock: true,
-    rating: 4.6,
-    image: "/images/lamp.jpg",
-  },
-  {
-    id: 8,
+    id: 6,
     name: "Minimalist Wall Clock",
     price: 29.99,
     category: "Home",
     inStock: true,
     rating: 4.3,
-    image: "/images/clock.jpg",
+    image: "/images/clock.png",
   },
   {
-    id: 9,
+    id: 7,
     name: "Soft Throw Blanket",
     price: 39.99,
     category: "Home",
     inStock: false,
     rating: 4.5,
-    image: "/images/blanket.jpg",
+    image: "/images/blanket.png",
   },
 
   // Easter
   {
-    id: 10,
+    id: 8,
     name: "Easter Chocolate Box",
     price: 19.99,
     category: "Seasonal 🐰",
     inStock: true,
     rating: 4.9,
-    image: "/images/easter-eggs.jpg",
+    image: "/images/easter-chocolate.png",
   },
   {
-    id: 11,
+    id: 9,
     name: "Easter Bunny Toy",
     price: 15.99,
     category: "Seasonal 🐰",
-    inStock: true,
-    rating: 4.7,
-    image: "/images/bunny.jpg",
-  },
-  {
-    id: 12,
-    name: "Decorated Easter Egg",
-    price: 12.99,
-    category: "Seasonal 🐰",
     inStock: false,
-    rating: 4.4,
-    image: "/images/easter-egg.jpg",
+    rating: 4.7,
+    image: "/images/easter-bunny.png",
   },
   {
-    id: 13,
+    id: 10,
     name: "Easter Flower Basket",
     price: 24.99,
     category: "Seasonal 🐰",
     inStock: true,
     rating: 4.6,
-    image: "/images/easter-basket.jpg",
+    image: "/images/easter-basket.png",
   },
   {
-    id: 14,
+    id: 11,
     name: "Easter Cookie Decorating Kit",
     price: 9.99,
     category: "Seasonal 🐰",
     inStock: true,
     rating: 4.8,
-    image: "/images/easter-cookies.jpg",
+    image: "/images/easter-cookies.png",
   },
 ]
 
@@ -225,9 +198,6 @@ const totalCartPrice = computed(() => {
   return total
 })
 
-const hasNoMatchingProducts = computed(() => {
-  return sortedProducts.value.length === 0
-})
 </script>
 
 <template>
@@ -245,7 +215,7 @@ const hasNoMatchingProducts = computed(() => {
 
     <div class="page-layout">
       <section class="shop-column">
-        <p v-if="hasNoMatchingProducts" class="empty-state">
+        <p v-if="sortedProducts.length === 0" class="empty-state">
           No products found for your search or selected filter.
         </p>
 

@@ -19,7 +19,7 @@ function handleAddToCart() {
     <img :src="product.image" :alt="product.name" class="product-image" />
 
     <h3>{{ product.name }}</h3>
-    <p>Price: ${{ product.price.toFixed(2) }}</p>
+    <p>Price: €{{ product.price.toFixed(2) }}</p>
     <p>Category: {{ product.category }}</p>
     <p>Rating: {{ product.rating }}</p>
 <!-- <p>{{ product.inStock ? 'In stock' : 'Out of stock' }}</p> -->
