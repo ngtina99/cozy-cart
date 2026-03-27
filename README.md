@@ -1,4 +1,4 @@
-# Cozy Cart frontend app
+# Cozy Cart - frontend app
 
 ## Introduction
 
@@ -14,9 +14,9 @@ It demonstrates component-based architecture, filtering, sorting, and cart manag
 - [3.Features](#3-features)
 - [4.Structure Explanation](#4-structure-explanation)
 - [5.Vue Usage](#5-vue-usage)
-- [6.Reactivity](#6-reactivity)
+- [6.Vue Usage](#6-reactivity)
 - [7.Connect](#15-connect)
-- [8.License](#16-license)
+
 ---
 
 ## 1. Usage
@@ -42,16 +42,20 @@ npm run dev
 ```txt
 http://localhost:5173
 ```
+
 ---
-## Tech Stack
+
+## 2. Tech Stack
 
 - Framework: Vue 3 (3.5.30)  
 - Build Tool: Vite (8.0.1)  
 - Programming Language: JavaScript (ES6+)  
 - Markup: HTML5  
-- Styling: CSS3  
+- Styling: CSS3
+
 ---
-## Features
+
+## 3. Features
 - Search products by name
 - Filter products by category
 - Sort products (price, rating)
@@ -61,8 +65,10 @@ http://localhost:5173
 - Reactive total price calculation
 - Disable add-to-cart for unavailable items
 - Responsive design (+collapsible cart on mobile/tablet)
+
 ---
-## Structure Explanation
+
+## 4. Structure Explanation
 
 - **public/**  
   Static assets served directly (e.g. images like the logo)
@@ -95,30 +101,22 @@ http://localhost:5173
 
 - **package.json**  
   Project dependencies and scripts
+  
 ---
 
-## Vue Usage
+## 6. Vue Usage
 
 - **v-model** – Two-way binding for inputs  
 - **v-bind / :** – Dynamic attributes  
 - **v-for** – Render lists (products, cart items)  
 - **v-if / v-else** – Conditional rendering  
 - **v-show** – Toggle visibility (responsive cart)  
-- **v-on / @** – Event handling  
+- **v-on / @** – Event handling
 
 ---
 
-## Reactivity
-
-- **ref()** – Reactive state (cart, filters, UI)  
-- **computed()** – Derived data (filtered products, totals)  
-
-## 15. Connect
+## 7. Connect
 If you have any questions or suggestions, feel free to connect:
 🔗 [LinkedIn: Valentina Nguyen](https://www.linkedin.com/in/valentina-nguyen-t/) 🙋‍♀️
-
-## 16. License
-This project is licensed under the MIT License. See LICENSE for details.
-
 
 *Image generated with ChatGPT*
