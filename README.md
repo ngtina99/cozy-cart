@@ -10,11 +10,11 @@ It allows users to search, filter, and sort products and manage a shopping cart 
 ### Table of Contents
 
 - [1. Usage](#1-usage)
-- [2.Tech Stack](#2-tech-stack)
-- [3.Features](#3-features)
-- [4.Structure Explanation](#4-structure-explanation)
-- [5.Technical requirements](#5-technical-requirements)
-- [6.Connect](#6-connect)
+- [2. Tech Stack](#2-tech-stack)
+- [3. Features](#3-features)
+- [4. Structure Explanation](#4-structure-explanation)
+- [5. Technical requirements](#5-technical-requirements)
+- [6. Connect](#6-connect)
 
 ---
 
