@@ -105,8 +105,8 @@ http://localhost:5173
 
 ## 5. Technical Requirements
 
-- **Vue 3 + Composition API** (`setup`, `ref`, `computed`)
-- **Components & Props** – Structured into reusable components
+✅ **Vue 3 + Composition API** (`setup`, `ref`, `computed`)
+✅ **Components & Props** – Structured into reusable components
 - **Events (`emit` / `defineEmits`)** – Child-to-parent communication
 - **v-model** – Two-way binding (search, filters)
 - **v-for** – List rendering (products, cart)
