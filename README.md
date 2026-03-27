@@ -120,5 +120,3 @@ http://localhost:5173
 ## 6. Connect
 If you have any questions or suggestions, feel free to connect:
 🔗 [LinkedIn: Valentina Nguyen](https://www.linkedin.com/in/valentina-nguyen-t/) 🙋‍♀️
-
-*Image generated with ChatGPT*
