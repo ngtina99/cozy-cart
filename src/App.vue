@@ -88,7 +88,7 @@ const totalCartPrice = computed(() => {
     />
 
     <p v-if="sortedProducts.length === 0" class="empty-state">
-      No products found for your search or selected filter.
+      No products found. Try a different search.
     </p>
 
     <ProductList
