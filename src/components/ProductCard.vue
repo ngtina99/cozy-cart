@@ -7,7 +7,7 @@ const emit = defineEmits([
     'add-to-cart',
 ])
 
-function handleAddToCart() {
+function addToCart() {
   emit('add-to-cart', product)
 }
 </script>
@@ -29,7 +29,7 @@ function handleAddToCart() {
     <button
       class="add-button"
       :disabled="!product.inStock"
-      @click="handleAddToCart"
+      @click="addToCart"
     >
       Add to Cart
     </button>

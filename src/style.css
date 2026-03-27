@@ -266,13 +266,28 @@ main {
   color: #4b5563;
 }
 
+.cart-header.clickable {
+  cursor: pointer;
+}
+
+.cart-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cart-toggle-indicator {
+  font-size: 0.9rem;
+}
+
 @media (max-width: 1200px) {
   .products-grid {
     grid-template-columns: repeat(3, 260px);
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1366px) {
   .cart-column {
     position: static;
     width: auto;
@@ -290,6 +305,10 @@ main {
 
   .cart-items-scroll {
     overflow: visible;
+  }
+
+  .products-grid {
+  justify-content: center; 
   }
 
   .search-row {

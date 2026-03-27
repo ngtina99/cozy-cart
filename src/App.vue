@@ -1,12 +1,12 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { products } from './data/products'
 import FiltersBar from './components/FiltersBar.vue'
 import ProductList from './components/ProductList.vue'
 import CartSummary from './components/CartSummary.vue'
-import { products } from './data/products'
 
 const selectedCategory = ref('All')
-const searchTerm = ref('') // reactive empty string
+const searchTerm = ref('')
 const selectedSort = ref('default')
 const cart = ref([]) // reactive array->quantities increase over time
 
@@ -52,7 +52,7 @@ const sortedProducts = computed(() => {
 })
 
 function addToCart(product) {
-  // checks if we already pushed the itemtype to the cart array
+  // checks if we already pushed the item type to the cart array
   const existingCartItem = cart.value.find((cartItem) => {
     return cartItem.id === product.id
   })
@@ -105,15 +105,15 @@ const totalCartPrice = computed(() => {
       @update:selected-sort="selectedSort = $event"
     />
 
-        <p v-if="sortedProducts.length === 0" class="empty-state">
-          No products found for your search or selected filter.
-        </p>
+    <p v-if="sortedProducts.length === 0" class="empty-state">
+      No products found for your search or selected filter.
+    </p>
 
-        <ProductList
-          v-else
-          :products="sortedProducts"
-          @add-to-cart="addToCart"
-        />
+    <ProductList
+      v-else
+      :products="sortedProducts"
+      @add-to-cart="addToCart"
+    />
 
     <aside class="cart-column">
         <CartSummary
