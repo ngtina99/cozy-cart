@@ -1,4 +1,4 @@
-# Cozy Cart E-commerce app
+# Cozy Cart demo app
 
 ## Introduction
 
