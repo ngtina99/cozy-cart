@@ -1,4 +1,4 @@
-# Cozy Cart
+# Cozy Cart E-commerce app
 
 ## Introduction
 
