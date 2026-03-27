@@ -36,7 +36,7 @@ main {
   padding: 32px 16px;
 }
 
-/* App-level layout only */
+/* App-level layout */
 .cart-column {
   position: fixed;
   top: 0;

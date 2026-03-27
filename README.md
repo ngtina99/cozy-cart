@@ -2,11 +2,24 @@
 
 ## Introduction
 
-Cozy Cart is a demo frontend-only e-commerce app built with Vue 3.
+Cozy Cart is a demo e-commerce app built with Vue 3.
 It demonstrates component-based architecture, filtering, sorting, and cart management using mock data.
 
+![cozy-cart-cover](cozy-cart-cover.png)
 
-## Usage
+## Table of Contents
+
+- [1. Usage](#1-usage)
+- [2.Tech Stack](#2-tech-stack)
+- [3.Features](#3-features)
+- [4.Structure Explanation](#4-structure-explanation)
+- [5.Vue Usage](#5-vue-usage)
+- [6.Reactivity](#6-reactivity)
+- [7.Connect](#15-connect)
+- [8.License](#16-license)
+---
+
+## 1. Usage
 
 1.Clone the repository in your terminal:
 ```bash
@@ -29,7 +42,7 @@ npm run dev
 ```txt
 http://localhost:5173
 ```
-
+---
 ## Tech Stack
 
 - Framework: Vue 3 (3.5.30)  
@@ -37,63 +50,75 @@ http://localhost:5173
 - Programming Language: JavaScript (ES6+)  
 - Markup: HTML5  
 - Styling: CSS3  
-
+---
 ## Features
 - Search products by name
 - Filter products by category
 - Sort products (price, rating)
 - Add items to cart
 - Increase quantity of existing cart items
-- Dynamic total price calculation
+- Dynamic categories based on product data
+- Reactive total price calculation
 - Disable add-to-cart for unavailable items
 - Responsive design (+collapsible cart on mobile/tablet)
+---
+## Structure Explanation
 
-## 🧠 Structure Explanation
+- **public/**  
+  Static assets served directly (e.g. images like the logo)
 
-### public/
-Contains static assets that are served directly (e.g. images like the logo).
+- **src/assets/**  
+  Global styles and resources  
+  - `main.css` → global styling  
 
-### src/assets/
-Stores global styles and static resources used inside the app.  
-- `main.css` → global styling applied across the application  
+- **src/components/**  
+  Reusable Vue components:
+  - **FiltersBar** → search, filtering, sorting  
+  - **ProductList** → product grid  
+  - **ProductCard** → product display and add-to-cart  
+  - **CartSummary** → cart items, totals, responsive behavior  
 
-### src/components/
-Contains reusable Vue components:
-- **FiltersBar** → search input, category filter, and sorting controls  
-- **ProductList** → renders the list/grid of products  
-- **ProductCard** → displays individual product details and handles add-to-cart  
-- **CartSummary** → shows cart items, totals, and responsive behavior  
+- **src/data/**  
+  Mock product data (`products.js`)
 
-### src/data/
-Holds mock data used by the application (`products.js`).
+- **App.vue**  
+  Main component handling state, business logic, and component communication  
 
-### App.vue
-Root component responsible for:
-- managing application state (products, filters, cart)  
-- handling business logic  
-- passing data and events between components  
+- **main.js**  
+  App entry point (initializes and mounts Vue)
 
-### main.js
-Entry point of the application that initializes and mounts Vue.
+- **index.html**  
+  Base HTML file
 
-### index.html
-Base HTML file where the Vue app is injected.
+- **vite.config.js**  
+  Vite configuration
 
-### vite.config.js
-Configuration file for the Vite build tool.
+- **package.json**  
+  Project dependencies and scripts
+---
 
-### package.json
-Defines project dependencies and scripts.
+## Vue Usage
+
+- **v-model** – Two-way binding for inputs  
+- **v-bind / :** – Dynamic attributes  
+- **v-for** – Render lists (products, cart items)  
+- **v-if / v-else** – Conditional rendering  
+- **v-show** – Toggle visibility (responsive cart)  
+- **v-on / @** – Event handling  
 
 ---
 
-## 🏆 Why this structure
+## Reactivity
 
-This structure separates concerns clearly:
+- **ref()** – Reactive state (cart, filters, UI)  
+- **computed()** – Derived data (filtered products, totals)  
 
-- UI components → `components/`  
-- Data → `data/`  
-- Global styles → `assets/`  
-- App logic → `App.vue`  
+## 15. Connect
+If you have any questions or suggestions, feel free to connect:
+🔗 [LinkedIn: Valentina Nguyen](https://www.linkedin.com/in/valentina-nguyen-t/) 🙋‍♀️
 
-👉 This makes the project scalable, maintainable, and easy to navigate.
+## 16. License
+This project is licensed under the MIT License. See LICENSE for details.
+
+
+*Image generated with ChatGPT*
