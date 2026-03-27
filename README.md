@@ -5,17 +5,16 @@
 Cozy Cart is a demo e-commerce app built with Vue 3.
 It demonstrates component-based architecture, filtering, sorting, and cart management using mock data.
 
+![cozy-cart-cover](cozy-cart-cover.png)
+
+### Table of Contents
+
 - [1. Usage](#1-usage)
 - [2.Tech Stack](#2-tech-stack)
 - [3.Features](#3-features)
 - [4.Structure Explanation](#4-structure-explanation)
-- [5.Vue Usage](#5-vue-usage)
-- [6.Vue Usage](#6-reactivity)
-- [7.Connect](#15-connect)
-
----
-
-![cozy-cart-cover](cozy-cart-cover.png)
+- [5.Technical requirements](#5-technical-requirements)
+- [7.Connect](#6-connect)
 
 ---
 
@@ -104,18 +103,21 @@ http://localhost:5173
   
 ---
 
-## 6. Vue Usage
+## 5. Technical Requirements
 
-- **v-model** – Two-way binding for inputs  
-- **v-bind / :** – Dynamic attributes  
-- **v-for** – Render lists (products, cart items)  
-- **v-if / v-else** – Conditional rendering  
-- **v-show** – Toggle visibility (responsive cart)  
-- **v-on / @** – Event handling
+- **Vue 3 + Composition API** (`setup`, `ref`, `computed`)
+- **Components & Props** – Structured into reusable components
+- **Events (`emit` / `defineEmits`)** – Child-to-parent communication
+- **v-model** – Two-way binding (search, filters)
+- **v-for** – List rendering (products, cart)
+- **v-if / v-else / v-show** – Conditional rendering
+- **Computed** – Filtered/sorted products, cart totals
+- **Reactive state** – Dynamic updates for cart and filters
+- **JavaScript logic** – Filtering, searching, sorting
 
 ---
 
-## 7. Connect
+## 6. Connect
 If you have any questions or suggestions, feel free to connect:
 🔗 [LinkedIn: Valentina Nguyen](https://www.linkedin.com/in/valentina-nguyen-t/) 🙋‍♀️
 
