@@ -87,7 +87,7 @@ http://localhost:5173
   Mock product data (`products.js`)
 
 - **App.vue**  
-  Main component handling state, business logic, and component communication  
+  Main component handling state, business logic and component communication  
 
 - **main.js**  
   App entry point (initializes and mounts Vue)
