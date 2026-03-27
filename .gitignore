@@ -5,12 +5,6 @@ node_modules/
 dist/
 dist-ssr/
 
-# Environment files
-.env
-.env.*
-!.env.example
-*.local
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,6 +17,15 @@ __MACOSX/
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files
+.env
+.env.*
+!.env.example
+*.local
+
+# Ignore misc folder
+misc/
 
 # Mac archive metadata
 __MACOSX/
