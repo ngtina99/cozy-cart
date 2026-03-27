@@ -14,7 +14,7 @@ It allows users to search, filter, and sort products and manage a shopping cart 
 - [3.Features](#3-features)
 - [4.Structure Explanation](#4-structure-explanation)
 - [5.Technical requirements](#5-technical-requirements)
-- [7.Connect](#6-connect)
+- [6.Connect](#6-connect)
 
 ---
 
