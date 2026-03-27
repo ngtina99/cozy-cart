@@ -1,4 +1,4 @@
-# Cozy Cart demo app
+# Cozy Cart frontend app
 
 ## Introduction
 
