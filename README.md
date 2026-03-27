@@ -105,15 +105,15 @@ http://localhost:5173
 
 ## 5. Technical Requirements
 
-✅ **Vue 3 + Composition API** (`setup`, `ref`, `computed`)
-✅ **Components & Props** – Structured into reusable components
-- **Events (`emit` / `defineEmits`)** – Child-to-parent communication
-- **v-model** – Two-way binding (search, filters)
-- **v-for** – List rendering (products, cart)
-- **v-if / v-else / v-show** – Conditional rendering
-- **Computed** – Filtered/sorted products, cart totals
-- **Reactive state** – Dynamic updates for cart and filters
-- **JavaScript logic** – Filtering, searching, sorting
+- [x] **Vue 3 + Composition API** (`setup`, `ref`, `computed`)
+- [x] **Components & Props** – Structured into reusable components
+- [x] **Events (`emit` / `defineEmits`)** – Child-to-parent communication
+- [x] **v-model** – Two-way binding (search, filters)
+- [x] **v-for** – List rendering (products, cart)
+- [x] **v-if / v-else / v-show** – Conditional rendering
+- [x] **Computed** – Filtered/sorted products, cart totals
+- [x] **Reactive state** – Dynamic updates for cart and filters
+- [x] **JavaScript logic** – Filtering, searching, sorting
 
 ---
 
