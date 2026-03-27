@@ -2,19 +2,17 @@
 
 import { computed } from 'vue'
 
-/* expects 4 incoming values from the parent */
-/* Vue macro */
+// Vue macro: expects values from the parent
 const props = defineProps({
-  searchTerm: String, /* current search text */
+  searchTerm: String, // current search text
   selectedCategory: String,
   selectedSort: String,
   categories: Array,
 })
 
-/* send these 3 events upward */
-/* Vue emit function */
+// Vue emit function: send these 3 events upward
 const emit = defineEmits([
-  'update:searchTerm', /* search changes, notify parent */
+  'update:searchTerm', // search changes, notify parent
   'update:selectedCategory',
   'update:selectedSort',
 ])

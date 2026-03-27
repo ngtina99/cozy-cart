@@ -1,3 +1,29 @@
+a Git repository link
+source code
+README.md with:
+project name
+short intro
+Vue/Vite versions
+install instructions
+run instructions
+
+# Mini E-Commerce Frontend
+
+Small frontend-only e-commerce demo built with Vue 3 and Vite.
+
+## Tech Stack
+- Vue 3
+- Vite
+
+## Install
+npm install
+
+## Run
+npm run dev
+
+## Build
+npm run build
+
 # 🛒 Mini E-Commerce Frontend (Vue 3)
 
 This project is a small frontend-only e-commerce application built with **Vue 3** as part of a technical task.

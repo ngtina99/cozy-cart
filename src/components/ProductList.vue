@@ -9,7 +9,7 @@ const emit = defineEmits([
     'add-to-cart'
 ])
 
-/* needs product argument, because it receives it from ProductCard */
+// needs product argument, because it receives it from ProductCard
 function handleAddToCart(product) {
   emit('add-to-cart', product)
 }

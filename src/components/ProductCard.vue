@@ -1,10 +1,8 @@
 <script setup>
-/* Vue macro */
 const { product } = defineProps({
   product: Object,
 })
 
-/* Vue emit function */
 const emit = defineEmits([
     'add-to-cart',
 ])
