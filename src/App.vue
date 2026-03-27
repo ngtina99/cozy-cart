@@ -5,12 +5,11 @@ import FiltersBar from './components/FiltersBar.vue'
 import ProductList from './components/ProductList.vue'
 import CartSummary from './components/CartSummary.vue'
 
-const selectedCategory = ref('All')
 const searchTerm = ref('')
+const selectedCategory = ref('All')
 const selectedSort = ref('default')
-const cart = ref([]) // reactive array->quantities increase over time
+const cart = ref([])
 
-// computed derives a value from reactive data and automatically updates it when dependencies change
 const categories = computed(() => {
   const uniqueCategories = [...new Set(products.map(product => product.category))]
 
@@ -37,9 +36,9 @@ const sortedProducts = computed(() => {
   const sortOption = selectedSort.value
 
   const sortFunctions = {
-    'price-asc': (a, b) => a.price - b.price, // lower price first
-    'price-desc': (a, b) => b.price - a.price, // higher price first
-    'rating-desc': (a, b) => b.rating - a.rating, // higher rating first
+    'price-asc': (a, b) => a.price - b.price,
+    'price-desc': (a, b) => b.price - a.price,
+    'rating-desc': (a, b) => b.rating - a.rating,
   }
 
   const sortType = sortFunctions[sortOption]
@@ -71,38 +70,21 @@ function addToCart(product) {
 }
 
 const totalCartItems = computed(() => {
-  let total = 0
-
-  for (const item of cart.value) {
-    total += item.quantity
-  }
-
-  return total
+  return cart.value.reduce((total, item) => total + item.quantity, 0)
 })
 
 const totalCartPrice = computed(() => {
-  let total = 0
-
-  for (const item of cart.value) {
-    total += item.price * item.quantity
-  }
-
-  return total
+  return cart.value.reduce((total, item) => total + item.price * item.quantity, 0)
 })
-
 </script>
 
 <template>
   <main>
-
     <FiltersBar
-      :search-term="searchTerm"
-      :selected-category="selectedCategory"
-      :selected-sort="selectedSort"
+      v-model:searchTerm="searchTerm"
+      v-model:selectedCategory="selectedCategory"
+      v-model:selectedSort="selectedSort"
       :categories="categories"
-      @update:search-term="searchTerm = $event"
-      @update:selected-category="selectedCategory = $event"
-      @update:selected-sort="selectedSort = $event"
     />
 
     <p v-if="sortedProducts.length === 0" class="empty-state">

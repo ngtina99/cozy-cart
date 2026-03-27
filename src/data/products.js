@@ -12,7 +12,7 @@ export const products = [
   {
     id: 2,
     name: "Baseball Cap",
-    price: 12.99,
+    price: 10,
     category: "Accessories",
     inStock: true,
     rating: 4.2,
@@ -23,7 +23,7 @@ export const products = [
   {
     id: 3,
     name: "Smart Fitness Watch",
-    price: 149.99,
+    price: 150,
     category: "Electronics",
     inStock: true,
     rating: 4.7,
@@ -32,7 +32,7 @@ export const products = [
   {
     id: 4,
     name: "Portable Phone Charger",
-    price: 24.99,
+    price: 24.5,
     category: "Electronics",
     inStock: true,
     rating: 4.4,
@@ -43,16 +43,16 @@ export const products = [
   {
     id: 5,
     name: "Ceramic Coffee Mug",
-    price: 14.99,
+    price: 8,
     category: "Home",
     inStock: true,
-    rating: 4.2,
+    rating: 3,
     image: "/images/mug.png",
   },
   {
     id: 6,
     name: "Minimalist Wall Clock",
-    price: 29.99,
+    price: 30,
     category: "Home",
     inStock: true,
     rating: 4.3,
@@ -72,7 +72,7 @@ export const products = [
   {
     id: 8,
     name: "Easter Chocolate Box",
-    price: 19.99,
+    price: 15,
     category: "Seasonal",
     inStock: true,
     rating: 4.9,
@@ -90,7 +90,7 @@ export const products = [
   {
     id: 10,
     name: "Easter Flower Basket",
-    price: 24.99,
+    price: 20,
     category: "Seasonal",
     inStock: true,
     rating: 4.6,

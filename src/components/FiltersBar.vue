@@ -17,11 +17,12 @@ const emit = defineEmits([
   'update:selectedSort',
 ])
 
-const createModel = (propName) =>
-  computed({
+function createModel(propName) {
+  return computed({
     get: () => props[propName],
     set: (value) => emit(`update:${propName}`, value),
   })
+}
 
 const searchModel = createModel('searchTerm')
 const categoryModel = createModel('selectedCategory')
@@ -57,7 +58,7 @@ const sortModel = createModel('selectedSort')
             >
                 <!-- :key is for Vue -->
                 <option
-                v-for="category in props.categories"
+                v-for="category in categories"
                 :key="category"
                 :value="category"
                 >
