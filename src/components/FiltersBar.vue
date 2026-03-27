@@ -2,17 +2,15 @@
 
 import { computed } from 'vue'
 
-// Vue macro: expects values from the parent
 const props = defineProps({
-  searchTerm: String, // current search text
+  searchTerm: String,
   selectedCategory: String,
   selectedSort: String,
   categories: Array,
 })
 
-// Vue emit function: send these 3 events upward
 const emit = defineEmits([
-  'update:searchTerm', // search changes, notify parent
+  'update:searchTerm',
   'update:selectedCategory',
   'update:selectedSort',
 ])
@@ -32,13 +30,11 @@ const sortModel = createModel('selectedSort')
 <template>
   <section class="filters-section">
     <div class="search-row">
-
       <div class="logo-box">
         <img src="/images/logo.png" alt="Shop logo" class="site-logo" />
       </div>
 
       <div class="filter-group search-group">
-          <!-- listens to the input event -->
           <input
               id="search"
               v-model="searchModel"
@@ -50,13 +46,11 @@ const sortModel = createModel('selectedSort')
 
     <div class="filters-row">
       <div class="filter-group sort-inline">
-        <span class="sort-prefix">Category</span>
-            <!-- binding, sets the value from parent → child, listens when user changes it -->
+        <span class="filter-prefix">Category</span>
             <select
                 id="category"
                 v-model="categoryModel"
             >
-                <!-- :key is for Vue -->
                 <option
                 v-for="category in categories"
                 :key="category"
@@ -68,7 +62,7 @@ const sortModel = createModel('selectedSort')
         </div>
 
         <div class="filter-group sort-inline">
-            <span class="sort-prefix">Sort by</span>
+            <span class="filter-prefix">Sort by</span>
             <select
                 id="sort" 
                 v-model="sortModel"
@@ -148,7 +142,7 @@ const sortModel = createModel('selectedSort')
   gap: 12px;
 }
 
-.sort-prefix {
+.filter-prefix {
   white-space: nowrap;
   font-weight: 600;
   color: #4b5563;

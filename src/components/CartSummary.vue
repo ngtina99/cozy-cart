@@ -7,6 +7,7 @@ defineProps({
   totalCartPrice: Number,
 })
 
+// From here: responsive cart behavior (mobile/tablet toggle) not core logic
 const isMobileOrTablet = ref(false)
 const isCartOpen = ref(false)
 
@@ -47,6 +48,7 @@ onUnmounted(() => {
       :class="{ clickable: isMobileOrTablet }"
       @click="toggleCart"
     >
+
       <h2>Cart Summary
         <span v-if="isMobileOrTablet">
           {{ isCartOpen ? '▲' : '▼' }}

@@ -20,11 +20,13 @@ function addToCart() {
       {{ product.name }}
       <span v-if="product.category === 'Seasonal'">🐰</span>
     </h3>
+
     <p>Price: €{{ product.price.toFixed(2) }}</p>
     <p>Category: {{ product.category }}</p>
     <p>Rating: {{ product.rating }}</p>
     <p v-if="product.inStock">In stock</p>
     <p v-else class="out-of-stock">Out of stock</p>
+    
     <button
       class="add-button"
       :disabled="!product.inStock"
@@ -60,6 +62,7 @@ function addToCart() {
   overflow: hidden;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  line-clamp: 2;
 }
 
 .out-of-stock {
