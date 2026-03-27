@@ -7,6 +7,42 @@ Vue/Vite versions
 install instructions
 run instructions
 
+
+# Cozy Cart
+
+## Introduction
+Cozy Cart is a small frontend-only e-commerce app built with Vue 3 and Vite.
+It demonstrates component-based architecture, filtering, sorting, and cart management using mock data.
+
+## Project Info
+- Name: Cozy Cart
+- Vue: 3.5.x
+- Vite: 8.x
+## Tech Stack
+
+- Vue 3
+- Vite 8
+- JavaScript
+
+## Features
+- Product listing
+- Search by name
+- Category filtering
+- Sorting by price and rating
+- Frontend-only cart summary
+
+## Installation
+npm install
+
+## Run the Project
+npm run dev
+
+## Build
+npm run build
+
+## Preview
+npm run preview
+
 # Mini E-Commerce Frontend
 
 Small frontend-only e-commerce demo built with Vue 3 and Vite.

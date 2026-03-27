@@ -81,3 +81,101 @@ const sortModel = createModel('selectedSort')
     </div>
   </section>
 </template>
+
+<style scoped>
+.logo-box {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-logo {
+  height: 70px;
+  width: auto;
+}
+
+.filters-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1088px;
+}
+
+.search-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-group input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+}
+
+.filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 16px;
+}
+
+.filter-group {
+  min-width: 220px;
+}
+
+.filter-group input,
+.filter-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  font: inherit;
+  background-color: #ffffff;
+}
+
+.sort-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sort-prefix {
+  white-space: nowrap;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+@media (max-width: 1366px) {
+  .search-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-row {
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .filters-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+}
+</style>

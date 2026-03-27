@@ -29,3 +29,34 @@ function handleAddToCart(product) {
     </div>
   </section>
 </template>
+
+<style scoped>
+.products-section {
+  margin-top: 32px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 260px);
+  gap: 16px;
+  justify-content: start;
+}
+
+@media (max-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 260px);
+  }
+}
+
+@media (max-width: 1366px) {
+  .products-grid {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
