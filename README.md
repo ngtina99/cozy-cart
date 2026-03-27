@@ -1,171 +1,99 @@
-a Git repository link
-source code
-README.md with:
-project name
-short intro
-Vue/Vite versions
-install instructions
-run instructions
-
-
 # Cozy Cart
 
 ## Introduction
-Cozy Cart is a small frontend-only e-commerce app built with Vue 3 and Vite.
+
+Cozy Cart is a demo frontend-only e-commerce app built with Vue 3.
 It demonstrates component-based architecture, filtering, sorting, and cart management using mock data.
 
-## Project Info
-- Name: Cozy Cart
-- Vue: 3.5.x
-- Vite: 8.x
-## Tech Stack
 
-- Vue 3
-- Vite 8
-- JavaScript
+## Usage
 
-## Features
-- Product listing
-- Search by name
-- Category filtering
-- Sorting by price and rating
-- Frontend-only cart summary
+1.Clone the repository in your terminal:
+```bash
+git clone git@github.com:ngtina99/cozy-cart.git
+cd cozy-cart
+```
 
-## Installation
-npm install
-
-## Run the Project
-npm run dev
-
-## Build
-npm run build
-
-## Preview
-npm run preview
-
-# Mini E-Commerce Frontend
-
-Small frontend-only e-commerce demo built with Vue 3 and Vite.
-
-## Tech Stack
-- Vue 3
-- Vite
-
-## Install
-npm install
-
-## Run
-npm run dev
-
-## Build
-npm run build
-
-# 🛒 Mini E-Commerce Frontend (Vue 3)
-
-This project is a small frontend-only e-commerce application built with **Vue 3** as part of a technical task.
-
-The goal of the project is to demonstrate understanding of modern frontend development concepts such as component architecture, state management, filtering logic, and user interaction.
-
----
-
-## 🚀 Features
-
-- 🔍 Search products by name (case-insensitive)
-- 🏷 Filter products by category
-- ↕ Sort products:
-  - Price: Low → High
-  - Price: High → Low
-  - Rating
-- 🛍 Add products to cart
-- ➕ Increase quantity when adding the same product
-- 📊 Cart summary:
-  - Total item count
-  - Total price
-- 🔄 Toggle between **Shop view** and **Cart view**
-- ❌ Out-of-stock products are disabled
-
----
-
-## 🧱 Tech Stack
-
-- **Vue 3**
-- **Composition API** (`ref`, `computed`)
-- **Vite**
-- **CSS (no framework)**
-
----
-
-## 🧠 Concepts Demonstrated
-
-This project covers the following Vue and frontend concepts:
-
-- Component-based architecture
-- Props and event communication (`$emit`)
-- Two-way binding (`v-model`)
-- Conditional rendering (`v-if`, `v-else`)
-- List rendering (`v-for`)
-- Computed properties for derived state:
-  - filtered products
-  - sorted products
-  - cart totals
-- Basic JavaScript:
-  - array filtering
-  - sorting
-  - mapping
-- Separation of concerns between UI and logic
-
----
-
-## 📂 Project Structure
-
-
-src/
-│
-├── components/
-│ ├── FiltersBar.vue
-│ ├── ProductList.vue
-│ ├── ProductCard.vue
-│ └── CartSummary.vue
-│
-├── App.vue
-├── main.js
-└── style.css
-
-
----
-
-## 🛠 How to Run the Project
-
-### 1. Install dependencies
-
+2. Install dependencies:
 ```bash
 npm install
-2. Start development server
+```
+
+3. Start the development server:
+```bash
 npm run dev
+```
 
-Then open the URL shown in the terminal (usually http://localhost:5173).
+4. Then open the URL shown in the terminal
+*usually:
+```txt
+http://localhost:5173
+```
 
-📦 Data
+## Tech Stack
 
-The project uses mock product data stored in memory (no backend, no API).
+- Framework: Vue 3 (3.5.30)  
+- Build Tool: Vite (8.0.1)  
+- Programming Language: JavaScript (ES6+)  
+- Markup: HTML5  
+- Styling: CSS3  
 
-Each product includes:
+## Features
+- Search products by name
+- Filter products by category
+- Sort products (price, rating)
+- Add items to cart
+- Increase quantity of existing cart items
+- Dynamic total price calculation
+- Disable add-to-cart for unavailable items
+- Responsive design (+collapsible cart on mobile/tablet)
 
-id
-name
-price
-category
-inStock
-rating
-image
-🛒 Cart Logic
-Products are added to cart using their id
-If a product is added multiple times → its quantity increases
-No duplicate entries are created
-Cart state is stored in memory (resets on refresh)
-🎨 UI / UX Decisions
-Clean and minimal layout for clarity
-Search bar placed at the top for fast access
-Filters grouped logically below search
-Cart accessible via icon with item counter
-Dedicated cart view for better user experience
+## 🧠 Structure Explanation
+
+### public/
+Contains static assets that are served directly (e.g. images like the logo).
+
+### src/assets/
+Stores global styles and static resources used inside the app.  
+- `main.css` → global styling applied across the application  
+
+### src/components/
+Contains reusable Vue components:
+- **FiltersBar** → search input, category filter, and sorting controls  
+- **ProductList** → renders the list/grid of products  
+- **ProductCard** → displays individual product details and handles add-to-cart  
+- **CartSummary** → shows cart items, totals, and responsive behavior  
+
+### src/data/
+Holds mock data used by the application (`products.js`).
+
+### App.vue
+Root component responsible for:
+- managing application state (products, filters, cart)  
+- handling business logic  
+- passing data and events between components  
+
+### main.js
+Entry point of the application that initializes and mounts Vue.
+
+### index.html
+Base HTML file where the Vue app is injected.
+
+### vite.config.js
+Configuration file for the Vite build tool.
+
+### package.json
+Defines project dependencies and scripts.
+
+---
+
+## 🏆 Why this structure
+
+This structure separates concerns clearly:
+
+- UI components → `components/`  
+- Data → `data/`  
+- Global styles → `assets/`  
+- App logic → `App.vue`  
+
+👉 This makes the project scalable, maintainable, and easy to navigate.
