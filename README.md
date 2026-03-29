@@ -5,6 +5,8 @@
 CozyCart is a Vue 3 e-commerce frontend demo that showcases core frontend concepts through a small, interactive shop.  
 It allows users to search, filter, and sort products and manage a shopping cart using reactive data. The app is responsive across different devices.
 
+![cozy-cart-cover](cozy-cart-cover.png)
+
 ### Table of Contents
 
 - [1. Usage](#1-usage)
