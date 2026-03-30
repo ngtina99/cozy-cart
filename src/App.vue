@@ -4,78 +4,24 @@ import { products } from './data/products'
 import FiltersBar from './components/FiltersBar.vue'
 import ProductList from './components/ProductList.vue'
 import CartSummary from './components/CartSummary.vue'
+import { getCategories, filterProducts, sortProducts } from './utils/productFilters'
+import { useCart } from './composables/useCart'
 
 const searchTerm = ref('')
 const selectedCategory = ref('All')
 const selectedSort = ref('default')
-const cart = ref([])
 
-const categories = computed(() => {
-  const uniqueCategories = [...new Set(products.map(product => product.category))]
+const { cart, addToCart, totalCartItems, totalCartPrice } = useCart()
 
-  return ['All', ...uniqueCategories]
-})
+const categories = computed(() => getCategories(products))
 
-const filteredProducts = computed(() => {
-  const search = searchTerm.value.trim().toLowerCase()
-  const selected = selectedCategory.value
+const filteredProducts = computed(() =>
+  filterProducts(products, searchTerm.value, selectedCategory.value),
+)
 
-  return products.filter(product => {
-    const name = product.name.toLowerCase()
-    const matchesSearch = name.includes(search)
-    const matchesCategory = selected === 'All' || product.category === selected
-
-    return matchesSearch && matchesCategory
-  })
-})
-
-const sortedProducts = computed(() => {
-  // sortedProducts depends on filteredProducts
-  const productsForSorting = [...filteredProducts.value]
-
-  const sortOption = selectedSort.value
-
-  const sortFunctions = {
-    'price-asc': (a, b) => a.price - b.price,
-    'price-desc': (a, b) => b.price - a.price,
-    'rating-desc': (a, b) => b.rating - a.rating,
-  }
-
-  const sortType = sortFunctions[sortOption]
-
-  if (sortType) {
-    productsForSorting.sort(sortType)
-  }
-
-  return productsForSorting
-})
-
-function addToCart(product) {
-  // checks if we already pushed the item type to the cart array
-  const existingCartItem = cart.value.find((cartItem) => {
-    return cartItem.id === product.id
-  })
-
-  if (existingCartItem) {
-    existingCartItem.quantity += 1
-    return
-  }
-
-  cart.value.push({
-    id: product.id,
-    name: product.name,
-    price: product.price,
-    quantity: 1,
-  })
-}
-
-const totalCartItems = computed(() => {
-  return cart.value.reduce((total, item) => total + item.quantity, 0)
-})
-
-const totalCartPrice = computed(() => {
-  return cart.value.reduce((total, item) => total + item.price * item.quantity, 0)
-})
+const sortedProducts = computed(() =>
+  sortProducts(filteredProducts.value, selectedSort.value),
+)
 </script>
 
 <template>

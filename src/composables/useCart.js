@@ -1,10 +1,14 @@
 import { ref, computed } from 'vue'
 
 export function useCart() {
+  // addToCart reactive state to store the items in the cart
   const cart = ref([])
 
   function addToCart(product) {
-    const existingCartItem = cart.value.find((cartItem) => cartItem.id === product.id)
+    // checks if we already pushed the item type to the cart array
+    const existingCartItem = cart.value.find((cartItem) => {
+      return cartItem.id === product.id
+    })
 
     if (existingCartItem) {
       existingCartItem.quantity += 1
